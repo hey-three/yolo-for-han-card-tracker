@@ -9,6 +9,7 @@ yolo-for-han-card-tracker/
 ├─ README.md                         项目说明、数据准备和运行方法
 ├─ AGENTS.md                         项目维护约定
 ├─ .gitignore                        忽略本地数据、训练输出和 IDE 文件
+├─ requirements.txt                  Python 和 CUDA 依赖列表
 ├─ data.yaml                         YOLO 数据集配置
 ├─ dataset/                          本地数据目录，不上传到 GitHub
 │  ├─ images/{train,val}/            训练和验证图片
@@ -33,7 +34,14 @@ yolo-for-han-card-tracker/
 
 ## 环境准备
 
-使用已安装 CUDA 版 PyTorch 和 Ultralytics 的 Python 环境。数据工具还需要 OpenCV、Pillow。Windows 下训练脚本使用 `workers=0`。
+当前 `requirements.txt` 对齐项目的 Windows、CUDA 12.1 训练环境，包含 PyTorch 2.5.1、TorchVision 0.20.1、Ultralytics 8.4.6，以及数据工具所需的 OpenCV 和 Pillow。激活 Python 环境后安装：
+
+~~~powershell
+conda activate yolov11
+python -m pip install -r requirements.txt
+~~~
+
+如果使用 CPU 或其他 CUDA 版本，请先按本机环境调整 `requirements.txt` 中 PyTorch 的下载源和版本。Windows 下训练脚本使用 `workers=0`。
 
 数据集不随仓库上传。克隆项目后，请在根目录准备以下结构，并确认标签与图片文件名对应：
 
@@ -131,3 +139,4 @@ python .\scripts\prelabel.py --model runs/detect/train_416/weights/best.pt --sou
 ## GitHub 文件范围
 
 仓库忽略本地的 `dataset/`、`runs/`、`.idea/` 和 `model_test/predictions/`。这可以避免上传训练数据、训练产物、IDE 设置和生成的预测图。预训练权重和 20 张示例图片保留在仓库中。
+
