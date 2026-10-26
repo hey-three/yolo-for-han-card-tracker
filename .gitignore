@@ -1,0 +1,14 @@
+# Local dataset (explicitly excluded from GitHub)
+/dataset/
+
+# Generated training and prediction runs
+/runs/
+/model_test/predictions/
+
+# Local IDE settings
+/.idea/
+
+# Python cache and logs
+__pycache__/
+*.py[cod]
+*.log
