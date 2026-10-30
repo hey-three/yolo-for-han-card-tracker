@@ -36,6 +36,7 @@ yolo-for-han-card-tracker/
 │  ├─ labels/                        对应的 YOLO 标签
 │  ├─ classes.txt                    类别列表
 │  ├─ predictions/                   预测可视化结果，本地生成且不上传
+│  ├─ predict_folder.py               将图片文件夹中的检测结果画到原图上
 │  └─ predict_images.py              批量预测并对照标签生成报告
 ├─ scripts/
 │  ├─ train.py                       YOLO 模型训练
@@ -110,6 +111,16 @@ python .\scripts\train.py
 `runs/` 是可重新生成的训练输出，已加入 Git 忽略规则；训练结果只保存在运行电脑上，需自行备份重要的 `best.pt`。
 
 ## 预测
+
+### 仅生成带检测框的图片
+
+在 `model_test/predict_folder.py` 顶部设置 `MODEL_DIR`（包含 `best.pt` 的模型目录，也可直接填写 `.pt` 文件）和 `IMAGE_DIR`（原始图片文件夹），然后在项目根目录运行：
+
+~~~powershell
+python .\model_test\predict_folder.py
+~~~
+
+脚本优先读取权重同目录下 `model_config.yaml` 中的输入宽高；如果没有配置文件，使用脚本顶部的 `IMAGE_WIDTH` 和 `IMAGE_HEIGHT`。`CONFIDENCE` 可调整置信度阈值。结果按原图尺寸保存到 `model_test/predictions/folder/` 下新建的运行目录，不需要标签或类别文件。
 
 ### 批量预测并检查标注
 
