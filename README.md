@@ -4,6 +4,8 @@
 
 本仓库负责数据准备、标注检查、模型训练和预测评估；记牌器的桌面界面、窗口识别和记牌逻辑在另一个仓库中。模型按点数区分、不区分花色，共 15 类。训练入口为 `scripts/train.py`，模型和输入尺寸可在脚本顶部设置。模型接入记牌器时，请参考其[模型放置与尺寸规范](https://github.com/hey-three/han-card-tracker/blob/main/docs/模型训练与拼图约定.md)，并在目标游戏画面中实际验证识别效果。
 
+记牌器项目地址：<https://github.com/hey-three/han-card-tracker>
+
 ## 下载数据和权重
 
 - [训练数据集 Release](https://github.com/hey-three/yolo-for-han-card-tracker/releases/tag/training-dataset-2026-10-29)：下载 `data.rar`，解压后可查看 `data/` 下的原始图片和标签。该压缩包不是已经划分好的 `dataset/`，训练前需要自行准备训练集和验证集。
