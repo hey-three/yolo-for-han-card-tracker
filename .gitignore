@@ -1,5 +1,7 @@
 # Local dataset (explicitly excluded from GitHub)
 /dataset/
+/tmp/
+/data.rar
 
 # Generated training and prediction runs
 /runs/
