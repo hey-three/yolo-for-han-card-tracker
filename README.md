@@ -1,6 +1,8 @@
 # 斗地主牌面识别
 
-基于 Ultralytics YOLO 的扑克牌牌面目标检测项目。类别按点数区分，不区分花色，共 15 类。训练入口为 `scripts/train.py`，模型和输入尺寸可在脚本顶部设置。
+基于 Ultralytics YOLO 的扑克牌牌面目标检测项目，主要为 [Han Card Tracker 斗地主记牌器](https://github.com/hey-three/han-card-tracker) 训练模型。记牌器使用模型实时检测游戏窗口中的牌面及位置，再结合游戏区域统计剩余牌并记录出牌历史。
+
+本仓库负责数据准备、标注检查、模型训练和预测评估；记牌器的桌面界面、窗口识别和记牌逻辑在另一个仓库中。模型按点数区分、不区分花色，共 15 类。训练入口为 `scripts/train.py`，模型和输入尺寸可在脚本顶部设置。模型接入记牌器时，请参考其[模型放置与尺寸规范](https://github.com/hey-three/han-card-tracker/blob/main/docs/模型训练与拼图约定.md)，并在目标游戏画面中实际验证识别效果。
 
 ## 下载数据和权重
 
